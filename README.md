@@ -38,7 +38,7 @@ To start pocketbase
 // use dataPath where app have write access, for example temporary cache path `context.cacheDir.absolutePath` or filePath
 uiScope.launch {
     withContext(Dispatchers.IO) {
-        PocketbaseMobile.startPocketbase(dataPath, hostname, port, enableApiLogs)
+        PocketfhirMobile.startPocketbase(dataPath, hostname, port, enableApiLogs)
     }
 }
 ```
@@ -48,18 +48,18 @@ To stop pocketbase
 ```kotlin
 uiScope.launch {
     withContext(Dispatchers.IO) {
-        PocketbaseMobile.stopPocketbase()
+        PocketfhirMobile.stopPocketbase()
     }
 }
 ```
 
 To listen pocketbase events, and also handle custom api requests
 
-`pocketbaseMobile` have two custom routes as well ,`/api/nativeGet` and `/api/nativePost`, we can
+`pocketfhirMobile` have two custom routes as well ,`/api/nativeGet` and `/api/nativePost`, we can
 get these routes in this callback and return response from kotlin
 
 ```kotlin
-PocketbaseMobile.registerNativeBridgeCallback { command, data ->
+PocketfhirMobile.registerNativeBridgeCallback { command, data ->
     this.runOnUiThread {
         // Update ui from here
     }
